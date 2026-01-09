@@ -28,7 +28,14 @@
       "rotate": 270,
       "attrs": {}
     },
-    { "type": "wokwi-dht22", "id": "dht1", "top": -153.3, "left": 215.4, "attrs": {} }
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -153.3,
+      "left": 215.4,
+      "attrs": { "temperature": "42.3", "humidity": "50" }
+    },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 119.02, "left": 290.32, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -46,7 +53,11 @@
     [ "chip3:TX", "esp:RX", "orange", [ "v-11.41", "h38.4", "v115.2", "h67.2", "v124.8" ] ],
     [ "esp:4", "dht1:SDA", "yellow", [ "h0" ] ],
     [ "dht1:VCC", "esp:3V3", "red", [ "v0", "h-105.6", "v-163.2", "h-211.2", "v230.4" ] ],
-    [ "dht1:GND", "esp:GND.2", "white", [ "v0" ] ]
+    [ "dht1:GND", "esp:GND.2", "white", [ "v0" ] ],
+    [ "imu1:SCL", "esp:22", "cyan", [ "v0" ] ],
+    [ "imu1:GND", "esp:GND.2", "white", [ "v-115.2", "h-201.52" ] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "v-124.8", "h-374.32", "v19.2" ] ],
+    [ "imu1:SDA", "esp:21", "yellow", [ "v0" ] ]
   ],
   "dependencies": {}
 }

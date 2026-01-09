@@ -3,6 +3,7 @@
 #include "GPSModule.h"
 #include "Helper.h"
 #include "dht22.h"
+#include "accelero_gyro.h"
 
 
 void setup() {
@@ -12,6 +13,8 @@ void setup() {
   setupThermometerSensor();
   initGPS();
   setupDHT22();
+  setupAccelGyro();
+
 
   Serial.println("All modules initialized.");
 }
@@ -26,6 +29,9 @@ void loop() {
 
   readDHT22();
   displayDHT22();
+
+  updateAccelGyro();
+
 
   delay(100); // keep small
 }
