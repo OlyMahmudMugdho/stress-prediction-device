@@ -2,6 +2,8 @@
 #include "ThermometerSensor.h"
 #include "GPSModule.h"
 #include "Helper.h"
+#include "dht22.h"
+
 
 void setup() {
   Serial.begin(9600);  // MUST match GPS baud
@@ -9,6 +11,7 @@ void setup() {
   setupPulseSensor();
   setupThermometerSensor();
   initGPS();
+  setupDHT22();
 
   Serial.println("All modules initialized.");
 }
@@ -20,6 +23,9 @@ void loop() {
 
   displayPulse();
   displayThermometerValues();
+
+  readDHT22();
+  displayDHT22();
 
   delay(100); // keep small
 }

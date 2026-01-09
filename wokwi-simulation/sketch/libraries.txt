@@ -3,3 +3,4 @@
 
 Adafruit MLX90614 Library
 TinyGPSPlus
+DHT sensor library
