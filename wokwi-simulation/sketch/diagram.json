@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+    {
+      "type": "chip-c145-pulse",
+      "id": "chip1",
+      "top": -136.9,
+      "left": -75.88,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "chip-thermometer-mlx90614",
+      "id": "chip2",
+      "top": -84.4,
+      "left": -118.78,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "chip-gps-neo6m",
+      "id": "chip3",
+      "top": -122.8,
+      "left": -22.78,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "chip1:VCC", "esp:3V3", "red", [ "v48", "h-19.35" ] ],
+    [ "chip1:GND", "esp:GND.2", "white", [ "v38.4", "h105.6" ] ],
+    [ "chip1:OUT0", "esp:34", "orange", [ "v19.2", "h-9.6", "v115.2" ] ],
+    [ "chip2:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "chip2:GND", "esp:GND.2", "white", [ "v0", "h182.4", "v48" ] ],
+    [ "chip2:SCL", "esp:22", "cyan", [ "v-59.41", "h201.6", "v230.4" ] ],
+    [ "chip2:SDA", "esp:21", "orange", [ "v-69.01", "h230.4", "v268.8" ] ],
+    [ "chip3:VCC", "esp:3V3", "red", [ "v48", "h-48", "v28.8" ] ],
+    [ "chip3:GND", "esp:GND.2", "white", [ "v19.2", "h67.2", "v67.2" ] ],
+    [ "chip3:RX", "esp:TX", "cyan", [ "h19.2", "v113.39", "h57.6", "v105.6" ] ],
+    [
+      "chip3:TX",
+      "esp:RX",
+      "orange",
+      [ "v-11.41", "h38.4", "v115.2", "h57.6", "v124.8", "h9.6" ]
+    ]
+  ],
+  "dependencies": {}
+}

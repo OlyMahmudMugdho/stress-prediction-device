@@ -1,0 +1,11 @@
+{
+  "name": "gps-neo6m",
+  "author": "M. Oly Mahmud",
+  "pins": ["VCC", "GND", "RX", "TX"],
+  "controls": [
+    { "id": "lat", "type": "number", "default": -23.466417 },
+    { "id": "lon", "type": "number", "default": -51.840167 },
+    { "id": "speed", "type": "number", "default": 10 },
+    { "id": "enabled", "type": "boolean", "default": true }
+  ]
+}
